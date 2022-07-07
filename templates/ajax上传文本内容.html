@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <input type="text" id="username" name="username">
+    <input type="button" value="提交" id="upload">
+    <script type="text/javascript">
+        $(function () {
+            $("#upload").click(function () {
+                var str = { "name": $('#username').val() }
+                var adata = JSON.stringify(str)
+                console.log(adata)
+                jQuery.ajax({
+                    type: 'post',
+                    async: false,
+                    url: "http://127.0.0.1:3000/upload", //上传文件的请求路径必须是绝对路劲
+                    data: adata,
+                    dataType: "json",
+                    contentType: 'application/json',
+                    success: function (data) {
+                        alert("上传成功" + adata);
+
+
+                    },
+                    error: function () {
+                        alert("错误！！" + adata);
+                        $.ajax({
+                            url: "http://127.0.0.1:5000/",
+                            data: adata,
+                            async: true,
+                            timeout: 1000,
+                            success: function () {
+                            },
+                            error: function () {
+                                alert("导出数据失败" + adata)
+                            }
+                        })
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="font/iconfont.css" />
+    <link rel="stylesheet" href="font1/iconfont.css" />
+    <link rel="stylesheet" href="css/css.css">
+    <script type="text/javascript" src="js/time.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <style>
+        * {
+            /* 初始化 取消页面元素内外边距 */
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; */
+            /* background-color: #B4D8FB; */
+            background: url("images/背景1.jpg") no-repeat center center fixed;
+            background-size: 100% 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .box1 {
+            position: absolute;
+            left: 69.3%;
+            top: 8%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 50px;
+            border-radius: 6px;
+            box-shadow: inset 0 0 10px #fff;
+            animation: animate 2s linear infinite;
+            background: linear-gradient(135deg, #c9ffbf, #ffafbd);
+        }
+
+        .showtime {
+            position: absolute;
+            width: 150px;
+            height: 50px;
+            /* left: 10px;
+            top: 10px;
+            right: 10px;
+            bottom: 10px; */
+            border-radius: 6px;
+            background: rgba(54, 67, 75, .5);
+            box-shadow: inset 0px 0px 2px #fff;
+        }
+
+        .showtime p {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            font-size: 20px;
+            /* color: #fff; */
+            text-align: center;
+            line-height: 50px;
+            text-transform: uppercase;
+            /* 先设置背景 */
+            background: linear-gradient(135deg, #c9ffbf, #ffafbd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: animate 10s linear infinite;
+        }
+
+        @keyframes animate {
+            to {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        #title {
+            width: 1000px;
+            position: absolute;
+            left: 140px;
+            /* background-color: pink; */
+            border-bottom: 4px solid #e5cab9;
+            /* padding: 10px; */
+            padding-top: 10px;
+            padding-bottom: 25px;
+            /* margin: 10px; */
+            z-index: 2;
+        }
+
+        .a {
+            position: relative;
+            font: 900 100px '';
+            font-size: 50px;
+            color: #333;
+            padding-top: 5px;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        .a span {
+            color: #e5cab9;
+            transition: .5s;
+            transition-delay: calc(var(--i)*.1s);
+        }
+
+        .a:hover span {
+            color: #FEF2E9;
+            /*变化后字体颜色*/
+            text-shadow: 0 0 10px #D3B7A4,
+                /*字体周围阴影颜色*/
+                0 0 20px #D3B7A4,
+                0 0 30px #D3B7A4,
+                0 0 50px #D3B7A4,
+                0 0 80px #D3B7A4;
+        }
+
+        .left1 {
+
+            position: absolute;
+            top: 330px;
+            right: 20px;
+            height: 390px;
+            width: 300px;
+            z-index: 1;
+        }
+
+        .title1 {
+            text-align: center;
+            height: 48px;
+            line-height: 48px;
+            /* background: #9d989d; */
+            background: rgba(0, 0, 0, 0.4);
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 3px solid #88ACD6;
+            color: #e5cab9;
+        }
+
+        #maps {
+            /* background: #9d989d; */
+            background: rgba(0, 0, 0, 0.4);
+            padding-top: 10px;
+            height: 300px;
+
+            list-style: none;
+            overflow: hidden;
+            clear: both;
+        }
+
+        #maps li {
+            list-style: none;
+            /* margin: 0 auto; */
+
+            /* padding-top: 15px; */
+            height: 200px;
+            width: 200px;
+            border: 3px solid #88ACD6;
+            margin-bottom: 10px;
+        }
+
+        #maps img {
+            width: 195px;
+            /* padding-top: 40px; */
+
+        }
+
+        .a1 {
+            /* 设置按钮大小 */
+            width: 97px;
+            height: 300px;
+
+            /* 使按钮居中 */
+            left: 83%;
+            top: 166%;
+            position: absolute;
+            line-height: 70px;
+            text-align: center;
+            /*由于absolute是以按钮的左上角来作为位置基准的，应该再向左上平移按钮自己的一半 */
+            transform: translate(-50%, -50%);
+            /* 去除文字装饰，使按钮字母大写 ，字体大小及颜色（可自行调节）*/
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 20px;
+            color: #ffff;
+            /* 按钮变成圆角 */
+            /* border-radius: 50px; */
+            /* 按钮背景颜色及尺寸 */
+            background-image: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #09a8f4);
+            background-size: 400%;
+            /* 将该层层级设为1 */
+            z-index: 3;
+
+        }
+
+        .a1 span {
+
+            line-height: 40px;
+            font-size: 30px;
+            color: #F5DD8F;
+            font-family: firefly;
+            display: block
+        }
+
+        .a1 .span1 {
+            height: 40px;
+        }
+
+
+        @keyframes sun {
+            100% {
+                background-position: -400% 0;
+            }
+        }
+
+        /* 添加背景移动动画（添加完成这一步即可看到流光） */
+        .a1:hover {
+            animation: sun 12s infinite;
+        }
+
+
+        /* 最后添加外面的模糊光 ，这时流光动画会被这层模糊挡住*/
+        .a1::before {
+            content: "";
+            position: absolute;
+            left: -5px;
+            right: -5px;
+            top: -5px;
+            bottom: -5px;
+            background-image: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #09a8f4);
+            background-size: 400%;
+            /* 添加高斯模糊为20px */
+            filter: blur(20px);
+            /* 将层级下调为-1 */
+            z-index: -1;
+        }
+
+
+        /* 给外面的模糊光也加上动画，就可以看到流光啦 */
+        .a1:hover::before {
+            animation: sun 12s infinite;
+        }
+
+        #uplo {
+            position: absolute;
+            z-index: 5;
+            width: 1000px;
+            height: 600px;
+            left: 48%;
+            margin-left: -600px;
+            top: 44%;
+            margin-top: -200px;
+            /* border: 2px dashed #000; */
+            text-align: center;
+            /* background: url("./images/test.png") no-repeat;
+            background-size: 100% 100%; */
+            background: linear-gradient(to left, #e5cab9, #e5cab9) left top no-repeat,
+                linear-gradient(to bottom, #e5cab9, #e5cab9) left top no-repeat,
+                linear-gradient(to left, #e5cab9, #e5cab9) right top no-repeat,
+                linear-gradient(to bottom, #e5cab9, #e5cab9) right top no-repeat,
+                linear-gradient(to left, #e5cab9, #e5cab9) left bottom no-repeat,
+                linear-gradient(to bottom, #e5cab9, #e5cab9) left bottom no-repeat,
+                linear-gradient(to left, #e5cab9, #e5cab9) right bottom no-repeat,
+                linear-gradient(to left, #e5cab9, #e5cab9) right bottom no-repeat;
+            background-size: 2px 50px, 50px 2px, 2px 50px, 50px 2px;
+            /* background-color: pink; */
+
+
+        }
+
+        .upload img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .container {
+            /* Colors */
+            position: absolute;
+            z-index: 1;
+            top: 94%;
+            width: 600px;
+            left: 16%;
+            background-color: rgba(0, 0, 0, 0.1);
+
+            /* Rounded border */
+            border-radius: 9999px;
+        }
+
+        .container__progress {
+            /* Center the content */
+            align-items: center;
+            display: flex;
+            justify-content: center;
+
+            /* Colors */
+            background-color: blue;
+            color: #fff;
+
+            /* Rounded border */
+            border-radius: 9999px;
+        }
+
+        .caidan {
+            position: absolute;
+
+            width: 300px;
+            /* height: 300px; */
+            left: 79.2%;
+            margin-right: 20px;
+            top: 35%;
+            margin-top: -250px;
+            /* border-radius: 5%; */
+            z-index: 15;
+            /* background: #F3DDCD; */
+            background: rgba(0, 0, 0, 0.4);
+
+        }
+
+        .info {
+
+            height: 270px;
+            width: 100%;
+            /* background: #9d989d; */
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .titl {
+            color: #e5cab9;
+            font-size: 12px;
+            height: 25px;
+            line-height: 25px;
+            padding-left: 10px;
+            border: 2px solid #88ACD6;
+        }
+
+        .info p {
+            height: 60px;
+            line-height: 70px;
+            color: #e5cab9;
+
+        }
+
+        .info img {
+            width: 17px;
+            margin-left: 15px;
+        }
+
+        .info img:nth-child(1) {
+            position: relative;
+            top: 2px;
+            margin-right: 10px;
+        }
+
+        .info img:nth-child(2) {
+            margin-left: 40px;
+            position: relative;
+            top: 2px;
+        }
+
+        .info img:nth-child(3) {
+            position: relative;
+            top: 2px;
+        }
+
+        .info .imga {
+            background: red;
+            position: relative;
+            top: 10px;
+            left: 10px;
+        }
+
+        .info .imga img {
+            width: 25px;
+            position: relative;
+            right: 7px;
+        }
+
+        .info .imgb {
+            background: blue;
+            position: relative;
+            top: 10px;
+            left: 10px;
+        }
+
+        .info .imgb img {
+            width: 25px;
+            position: relative;
+            right: 7px;
+        }
+
+        .info .imgc {
+            background: pink;
+            position: relative;
+            top: 10px;
+            left: 10px;
+        }
+
+        .info .imgc img {
+            width: 25px;
+            position: relative;
+            right: 7px;
+        }
+
+        .info .tongji {
+            color: #628F71;
+            font-size: 14px;
+            height: 57px;
+            line-height: 55px;
+            /* background: #00f7e334; */
+            margin-left: 15px;
+            width: 250px;
+        }
+
+        #tongji1 {
+            /* background: #628F71; */
+            border-bottom: 1px solid white;
+
+        }
+
+        #tongji2 {
+            /* background: #628F71; */
+            border-bottom: 1px solid white;
+
+        }
+
+        #tongji3 {
+            /* background: #628F71; */
+            border-bottom: 1px solid white;
+
+        }
+
+        .info .tongji span:nth-child(1) {
+            float: left;
+            height: 38px;
+            width: 38px;
+            border-radius: 50%;
+            line-height: 40px;
+
+        }
+
+        .info .tongji span:nth-child(2) {
+            margin-left: 20px;
+
+        }
+
+        .info .tongji span:nth-child(3) {
+            float: right;
+            margin-right: 40px;
+
+        }
+
+        .caidan .up h2 {
+            height: 48px;
+            /* background-color: #9d989d; */
+            background: rgba(0, 0, 0, 0.4);
+            text-align: center;
+            line-height: 48px;
+            font-size: 18px;
+            color: #e5cab9;
+
+        }
+
+
+
+
+
+
+
+        #a1-img {
+            display: none;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .file-input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            outline: none;
+            background-color: transparent;
+            filter: alpha(opacity=0);
+            -moz-opacity: 0;
+            -khtml-opacity: 0;
+            opacity: 0;
+        }
+
+        @font-face {
+            font-family: 'firefly';
+            src: url(ZCOOLKuaiLe-Regular.ttf);
+        }
+
+        .smalldiv {
+            width: 408px;
+            height: 30px;
+            background-color: rgba(199, 210, 212, 0.3);
+            border-radius: 30px;
+            -moz-border-radius: 30px;
+            -webkit-border-radius: 30px;
+            -o-border-radius: 30px;
+            border: 3px solid rgba(138, 188, 209, 0.5);
+            position: absolute;
+            z-index: 99;
+            top: 93%;
+            left: 34%;
+            font-size: 15px;
+
+        }
+
+        .smalldiv .current {
+            border-radius: 30px;
+            -moz-border-radius: 30px;
+            -webkit-border-radius: 30px;
+            -o-border-radius: 30px;
+            background-color: rgba(199, 210, 212, 0.6);
+            font-weight: bold;
+        }
+
+        .sm1 {
+            float: left;
+            width: 100px;
+            border-right: 2px solid white;
+            /* background-color: blue; */
+            height: 25px;
+            text-align: center;
+            /* line-height: 30px; */
+        }
+
+        .sm2 {
+            float: left;
+            width: 100px;
+            height: 25px;
+            border-right: 2px solid white;
+            text-align: center;
+
+        }
+
+        .sm3 {
+            width: 100px;
+            height: 25px;
+            text-align: center;
+            float: right;
+
+        }
+
+        #smfont {
+
+            font-size: 17px;
+            color: #F5DD8F;
+            font-family: firefly;
+        }
+
+        #title1234 {
+            position: absolute;
+            top: 72%;
+            left: 6%;
+            height: 30px;
+            line-height: 30px;
+            font-size: 23px;
+            color: #e5cab9;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box1">
+        <div class="showtime">
+            <p id="getTime">
+            </p>
+        </div>
+    </div>
+    <div class="a" id="title">
+        <span style="--i:1">地</span>
+        <span style="--i:2">物</span>
+        <span style="--i:3">分</span>
+        <span style="--i:4">类</span>
+    </div>
+    <div class="nav">
+        <!--按钮-->
+        <div class="btn">
+            <div class="btn-item"></div>
+            <div class="btn-item"></div>
+            <div class="btn-item"></div>
+        </div>
+        <!--头像-->
+        <div class="icon">
+            <a href="login.html">
+                <div class="icon-img"><img src="images/注册.png" alt="" /></div>
+            </a>
+            <div class="icon-con">
+                <!-- <p>Good Day</p>
+                <h2>Vitaliy D.</h2> -->
+                <h1>请登录！</h1>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="title2">
+            <p>&nbsp;&nbsp;&nbsp;Menu</p>
+        </div>
+        <div class="menu">
+            <a href="objextract.html">
+                <div class="item">
+
+                    <div class="light"></div>
+                    <div class="licon"><img src="images/提取.png" alt=""></div>
+
+                    <div class="con">目标提取</div>
+
+                    <div class="ricon"><span class="iconfont icon-shezhi"></span></div>
+                </div>
+            </a>
+            <a href="change.html">
+                <div class="item">
+
+                    <div class="light"></div>
+                    <div class="licon"><img src="images/变化.png" alt=""></div>
+
+                    <div class="con">变化检测</div>
+                    <div class="ricon"></div>
+
+                </div>
+            </a>
+            <a href="objdetection.html">
+                <div class="item">
+
+                    <div class="light"></div>
+                    <div class="licon">
+                        <img src="images/目标检测设置.png" alt="">
+                    </div>
+
+                    <div class="con">目标检测</div>
+                    <div class="ricon"></div>
+                </div>
+            </a>
+
+            <div class="item">
+
+                <div class="light"></div>
+                <div class="licon">
+                    <img src="images/地物分类.png" alt="">
+                </div>
+
+                <div class="con">地物分类</div>
+                <div class="ricon"><span class="iconfont icon-caidan1"></span></div>
+            </div>
+            <!-- </a>
+
+            <div class="item">
+
+                <div class="light"></div>
+                <div class="licon">
+                    <span class="iconfont icon-shexiang"></span>
+                </div>
+
+                <div class="con">Discount</div>
+                <div class="ricon"></div>
+            </div>
+            </a> -->
+        </div>
+        <div class="line"></div>
+        <div class="title2">
+            <p>Personal</p>
+        </div>
+        <a href="feedback.html">
+            <div class="serve">
+
+                <div class="item">
+
+                    <div class="licon"> <img src="images/联系我们.png" alt=""></div>
+
+                    <div class="con">联系我们</div>
+                    <div class="ricon">
+                        <span class="iconfont icon-Dashboard"></span>
+                    </div>
+                </div>
+        </a><a href="#">
+            <div class="item">
+
+                <div class="licon"><span class="iconfont icon-renqun"></span></div>
+
+                <div class="con">Chat</div>
+                <div class="ricon"></div>
+            </div>
+        </a>
+        <!-- <a href="#">
+            <div class="item">
+
+                <div class="licon"><span class="iconfont icon-sousuo"></span></div>
+
+                <div class="con">Intercom</div>
+                <div class="ricon"><span class="iconfont icon-caidan1"></span></div>
+            </div>
+        </a> -->
+        <a href="#">
+            <div class="item">
+
+                <div class="licon">
+                    <img src="images/退出登录.png" alt="">
+                </div>
+
+                <div class="con">注销</div>
+                <div class="ricon"></div>
+            </div>
+        </a>
+    </div>
+    </div>
+    <div class="left1">
+        <div class="title1">
+            地物分类图
+        </div>
+        <ul id="maps">
+
+
+            <li><img src="" alt=""></li>
+        </ul>
+        <div id="title1234">
+            地物分类数为2
+        </div>
+
+    </div>
+    <div class="upload" id="uplo">
+        <img src="images/diwu2.png" alt="" id="uploadimg">
+    </div>
+    <!-- 进度条 -->
+    <!-- <div class="container">
+        <div class="container__progress" style="
+            /* Width based on the number of percentages */
+            width: 40%;
+        ">
+            40%
+        </div>
+    </div> -->
+    <div class="caidan">
+        <div class="up" id="up">
+            <h2>识别结果</h2>
+            <div class="info">
+                <div class="titl">影像名称:17_3217386</div>
+                <p id="p"><img src="./images/圆圈：空.png" alt="">变化检测信息统计<img src="./images/编辑.png" alt=""><img
+                        src="./images/定位.png" alt=""></p>
+                <div class="tongji" id="tongji1"><span class="imga"><img src="./images/建筑.png"
+                            alt=""></span><span>建筑总面积</span>
+                    <span>9m</span>
+                </div>
+                <div class="tongji" id="tongji2"><span class="imgb"><img src="./images/数据.png"
+                            alt=""></span><span>树木总面积</span>
+                    <span>19m</span>
+                </div>
+                <div class="tongji" id="tongji3"><span class="imgc"><img src="./images/数据.png"
+                            alt=""></span><span>车辆总面积</span>
+                    <span>29m</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="a1" id="a1-1" style="cursor:pointer">
+            <span class="span1"></span>
+            <span>上</span>
+            <span>传</span>
+            <span>分</span>
+            <span>类</span>
+            <span>图</span>
+        </div>
+        <input type="file" name="file" id="a1-img" class="file-input" multiple />
+        <script>
+
+            $('#a1-1').click(function () {
+                $('#a1-img').click();
+            });
+            $("#a1-img").change(function () {
+                // this.files[0]代表的是选择的文件资源的第一个，因为上面写了 multiple="multiple" 就表示上传文件可能不止一个
+                console.log(this.files)
+                var arr = [];
+                for (var val of this.files) {
+                    var imgUrl = getObjectURL(val);
+                    if (imgUrl) {
+                        // 在这里修改图片的地址属性
+                        arr.push('<li><img src="' + imgUrl + '"/></li>')
+                    }
+                    $('#maps').html(arr.join(''))
+                }
+            });
+            //建立一個可存取到該file的url
+            function getObjectURL(file) {
+                var url = null;
+                // 下面函数执行的效果是一样的，只是需要针对不同的浏览器执行不同的 js 函数而已
+                if (window.createObjectURL != undefined) { // basic
+                    url = window.createObjectURL(file);
+                } else if (window.URL != undefined) { // mozilla(firefox)
+                    url = window.URL.createObjectURL(file);
+                } else if (window.webkitURL != undefined) { // webkit or chrome
+                    url = window.webkitURL.createObjectURL(file);
+                }
+                return url;
+            }
+            // function xmTanUploadImg(obj) {
+            //     var file = obj.files[0];
+            //     var reader = new FileReader();
+            //     reader.readAsDataURL(file);
+            //     reader.onload = function (e) {    //成功读取文件
+            //         var img = document.getElementById("selectImg");
+            //         img.src = e.target.result;   //或 img.src = this.result / e.target == this
+
+            //     };
+            // }
+        </script>
+        <script type="text/javascript">
+            $(function () {
+                $("#upload123").click(function () {
+                    var formData = new FormData($('#uploadForm')[0]);
+                    jQuery.ajax({
+                        type: 'post',
+                        async: false
+                        ,
+                        url: "http://127.0.0.1:3000/upload", //上传文件的请求路径必须是绝对路劲
+                        data: formData,
+                        cache: false,
+                        processData: false,
+                        contentType: false,
+                        dataType: "json",
+                        success: function (data) {
+                            const res = JSON.stringify(data, ["url"])
+                            console.log(res);
+                            result = res;
+                            alert("上传成功" + result)
+
+                        },
+                        error: function () {
+                            alert("错误！！");
+                        }
+                    });
+                    return result
+                });
+            });
+        </script>
+        <!-- <div><a class="a1" href="">上传对比图</a></div> -->
+    </div>
+    <!-- 目标切换 -->
+    <!-- <div class="smalldiv">
+        <div class="sm1" onclick="change1()" id="smfont" style="cursor:pointer">建筑</div>
+        <div class="sm2" onclick="change2()" id="smfont" style="cursor:pointer">车辆</div>
+        <div class="sm2" onclick="change3()" id="smfont" style="cursor:pointer">国土</div>
+        <div class="sm3" onclick="change4()" id="smfont" style="cursor:pointer">风力</div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            // 1.点击上部的li，当前li 添加current类，其余兄弟移除类
+            $(".smalldiv div").click(function () {
+                $(this).addClass("current").siblings().removeClass("current");
+
+            });
+        })
+        function change1() {
+
+            document.getElementById("uploadimg").src = "images/test.png"
+        }
+        function change2() {
+
+            document.getElementById("uploadimg").src = "images/test2.png"
+        }
+        function change3() {
+
+            document.getElementById("uploadimg").src = "images/test3.png"
+        }
+        function change4() {
+
+            document.getElementById("uploadimg").src = "images/test2.png"
+        }
+
+    </script> -->
+
+</body>
+
+</html>

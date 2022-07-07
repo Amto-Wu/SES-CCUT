@@ -1,0 +1,7 @@
+change                  变化检测
+objdetection            目标检测
+objextract              目标提取
+surface                 地物分类
+login                   登录
+register                注册
+feedback                联系我们
